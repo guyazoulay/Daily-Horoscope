@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form method="POST" action="/login">
+        <input type="hidden" name="dob" value="{{ dob }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="button" id="happy">Happy</button>
+        <button type="button" id="sad">Sad</button>
+        <button type="button" id="excited">Excited</button>
+        <button type="button" id="exhausted">Exhausted</button>
+        <button type="button" id="fear">Fear</button>
+
+        <br><br>
+        <input type="hidden" name="emotion" id="emotion" value="">
+
+        <button type="submit" >Login</button>
+
+
+    </form>
+
+    <script>
+    // Get references to the buttons
+    const happyButton = document.getElementById('happy');
+    const sadButton = document.getElementById('sad');
+    const excitedButton = document.getElementById('excited');
+    const exhaustedButton = document.getElementById('exhausted');
+    const fearButton = document.getElementById('fear');
+    const loginButton = document.querySelector('input[type="submit"]');
+
+    // Add click event listeners to the buttons
+    happyButton.addEventListener('click', function () {
+        // Set the selected emotion value in a hidden input field
+        document.getElementById('emotion').value = 'Happy';
+        // Submit the form
+        document.forms[0].submit();
+    });
+
+    sadButton.addEventListener('click', function () {
+        document.getElementById('emotion').value = 'Sad';
+        document.forms[0].submit();
+    });
+
+    excitedButton.addEventListener('click', function () {
+        document.getElementById('emotion').value = 'Excited';
+        document.forms[0].submit();
+    });
+
+     loginButton.addEventListener('click', function () {
+        // Submit the form when the login button is clicked
+        document.getElementById('login-form').submit();
+    });
+
+    exhaustedButton.addEventListener('click', function () {
+        document.getElementById('emotion').value = 'Exhausted';
+        document.forms[0].submit();
+    });
+
+    fearButton.addEventListener('click', function () {
+        document.getElementById('emotion').value = 'Fear';
+        document.forms[0].submit();
+    });
+    </script>
+
+</body>
+</html>
